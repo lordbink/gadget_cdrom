@@ -21,6 +21,13 @@ echo "Adding module to $pi_config_txt"
 echo "[gadget_cdrom]
 dtoverlay=dwc2" >> $pi_config_txt
 
+## Other custom settings
+echo "Updating custom options"
+echo "[user_custom]
+boot_delay=0
+force_turbo=0
+disable_splash=1" >> $pi_config_txt
+
 ## Add module to startup
 echo "Adding module to $modules"
 echo "dwc2" >> $modules
