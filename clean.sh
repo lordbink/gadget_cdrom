@@ -13,5 +13,5 @@ if lsmod |grep -q g_ether; then
 fi
 
 if mountpoint -q /iso; then
-    umount "$(losetup -PLf /iso.img --show)p1"
+    umount /dev/mmcblk0p3
 fi
