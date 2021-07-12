@@ -18,12 +18,14 @@ destination_directory="/opt"
 
 ## Add custom boot options
 echo "Adding module to $pi_config_txt"
-echo "[gadget_cdrom]
+echo "
+[gadget_cdrom]
 dtoverlay=dwc2" >> $pi_config_txt
 
 ## Other custom settings
 echo "Updating custom options"
-echo "[user_custom]
+echo "
+[user_custom]
 boot_delay=0
 force_turbo=0
 disable_splash=1" >> $pi_config_txt
@@ -39,8 +41,7 @@ raspi-config nonint do_spi 0
 ## Setup packages
 echo "Installing packages"
 apt update
-apt install -y p7zip-full python3-rpi.gpio python3-smbus python3-spidev \
-               python3-numpy python3-pil fonts-dejavu ntfs-3g git
+apt install -y p7zip-full python3-rpi.gpio python3-smbus python3-spidev python3-numpy python3-pil fonts-dejavu ntfs-3g git
 
 ## Adding repo
 echo "Setting up repository"
@@ -57,11 +58,9 @@ case "$question" in
     [yY][eE][sS]|[yY])
         $destination_directory/$git_directory/create_image.sh || echo "Something went wrong in the storage setup."
     ;;
-    * )
-        
+    * )  
         exit 0
     ;;
 esac
 
 echo "Setup complete, you will want to reboot."
-
